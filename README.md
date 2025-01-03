@@ -1,6 +1,8 @@
 # MLOps Project
 
-This project is designed to demonstrate a complete MLOps pipeline for a machine learning model, aiming to impress recruiters and visitors by showcasing key tools, techniques, services, and features used.
+**Food Delivery services like Zomato and Swiggy need to show the accurate time it will take to deliver your order to keep transparency with their customers. These companies use Machine Learning algorithms to predict the food delivery time based on how much time the delivery partners took for the same distance in the past.**
+
+**To predict the food delivery time in real-time, we need to calculate the distance between the food preparation point and the point of food consumption. After finding the distance between the restaurant and the delivery locations, we need to find relationships between the time taken by delivery partners to deliver the food in the past for the same distance.**
 
 ## 📦 Project Overview
 The project is a Flask-based web application that allows users to:
@@ -30,6 +32,18 @@ The entire pipeline is managed using MLOps best practices, including monitoring,
   - Model Training
 - **Docker:** For containerization and reproducibility.
 - **Logging:** Implemented with a dedicated logger for better traceability.
+
+---
+
+### 📏 Metrics
+The project uses the Haversine distance formula to calculate the distance between two geographical points:
+```python
+def distance_numpy(self, df, lat1, lon1, lat2, lon2):
+    p = np.pi / 180
+    a = 0.5 - np.cos((df[lat2] - df[lat1]) * p) / 2 + 
+        np.cos(df[lat1] * p) * np.cos(df[lat2] * p) * (1 - np.cos((df[lon2] - df[lon1]) * p)) / 2
+    df['distance'] = 12734 * np.arccos(np.sort(a))
+```
 
 ---
 
